@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>営業利益かんたん計算</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <p class="eyebrow">SALES TOOL</p>
+      <h1>営業利益かんたん計算</h1>
+      <p class="intro">件数・手数料・経費を入力すると、売上と概算利益を自動で計算します。</p>
+    </header>
+
+    <section class="panel" aria-labelledby="input-heading">
+      <h2 id="input-heading">数字を入力</h2>
+      <div class="input-grid">
+        <label class="field" for="deal-count">
+          <span>獲得件数</span>
+          <span class="input-wrap">
+            <input id="deal-count" name="deal-count" type="number" min="0" step="1" value="0" inputmode="numeric">
+            <span class="unit">件</span>
+          </span>
+        </label>
+        <label class="field" for="fee-per-deal">
+          <span>1件あたりの手数料</span>
+          <span class="input-wrap">
+            <input id="fee-per-deal" name="fee-per-deal" type="number" min="0" step="1" value="0" inputmode="numeric">
+            <span class="unit">円</span>
+          </span>
+        </label>
+        <label class="field" for="expenses">
+          <span>経費合計</span>
+          <span class="input-wrap">
+            <input id="expenses" name="expenses" type="number" min="0" step="1" value="0" inputmode="numeric">
+            <span class="unit">円</span>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel results" aria-labelledby="results-heading" aria-live="polite">
+      <h2 id="results-heading">計算結果</h2>
+      <dl class="result-list">
+        <div class="result-row">
+          <dt>売上合計</dt>
+          <dd id="sales-total">0円</dd>
+        </div>
+        <div class="result-row">
+          <dt>経費合計</dt>
+          <dd id="expenses-total">0円</dd>
+        </div>
+        <div class="result-row profit-row">
+          <dt>概算利益</dt>
+          <dd id="estimated-profit" class="profit-value">0円</dd>
+        </div>
+        <div class="result-row">
+          <dt>利益率</dt>
+          <dd id="profit-margin">0.0%</dd>
+        </div>
+      </dl>
+      <p class="note">概算利益 ＝ 売上合計 − 経費合計　／　利益率 ＝ 概算利益 ÷ 売上合計 × 100</p>
+    </section>
+
+    <footer class="footer">入力した数字はこの画面内で計算されます。</footer>
+  </main>
+</body>
+</html>
